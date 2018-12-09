@@ -1,0 +1,46 @@
+.container {
+  margin 0 auto
+  padding 0 15px
+  max-width 1200px
+}
+
+.grid {
+  display flex
+  flex-wrap wrap
+  margin 0 -15px
+  & > div {
+    width 100%
+    box-sizing border-box
+    padding 0 15px
+  }
+}
+
+generateColumn(prefix, x) {
+  for n in (1..x) {
+    .{prefix}-{n}-{x} {
+      width ((0% + n / x * 100));
+    }
+  }
+}
+
+.grid {
+  generateColumn('xs', 12)   
+}
+
+@media screen and (min-width: 768px) {
+  .grid {
+    generateColumn('sm', 12)   
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .grid {
+    generateColumn('md', 12)   
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .grid {
+    generateColumn('lg', 12)   
+  }
+}
